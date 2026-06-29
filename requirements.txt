@@ -1,0 +1,10 @@
+pyspark==3.5.1
+
+snowflake-connector-python
+
+psycopg2-binary
+
+python-dotenv
+pyyaml
+
+pytest

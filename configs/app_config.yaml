@@ -1,0 +1,27 @@
+application:
+  name: payments-reconciliation
+
+source:
+  system: neon
+
+storage:
+  bronze_path: data/bronze
+  silver_path: data/silver
+  gold_path: data/gold
+
+incremental:
+  enabled: true
+  watermark_path: reports/watermarks/bronze_watermarks.json
+  entities:
+    transactions:
+      watermark_column: date
+      primary_key: transaction_id
+    refunds:
+      watermark_column: date
+      primary_key: refund_id
+    chargebacks:
+      watermark_column: date
+      primary_key: chargeback_id
+
+audit:
+  enabled: true
